@@ -1,3 +1,4 @@
+import 'package:beeroute/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'customer_marketplace_page.dart';
 import 'customer_profile_page.dart';
@@ -33,8 +34,18 @@ class _CustomerHomePageState extends State<CustomerHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(_selectedIndex == 0 ? 'Marketplace' : 'Profile'),
-        backgroundColor: Theme.of(context).colorScheme.primary,
+        title: const Text('Customer Home Page'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LandingPage()),
+              );
+            },
+          ),
+        ],
       ),
       body: Column(
         children: [

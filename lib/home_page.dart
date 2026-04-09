@@ -1,3 +1,4 @@
+import 'package:beeroute/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'marketplace_page.dart';
 import 'profile_page.dart';
@@ -40,7 +41,17 @@ class _HomePageState extends State<HomePage> {
               : _selectedIndex == 1
                   ? 'Pickups'
                   : 'Profile',
-        ),
+        ),actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) =>  LandingPage()),
+              );
+            },
+          ),
+        ],
         backgroundColor: Theme.of(context).colorScheme.primary,
       ),
       body: Column(
